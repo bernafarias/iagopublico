@@ -1,0 +1,478 @@
+<div class="home-frame">
+  <div class="container">
+    <div class="row" style="margin-top: 50px;">
+
+      <div class="col-md-6 col-xs-12">
+        <h1 class="title-dataset" style="text-transform: none !important">Como usar a API</h1>
+         
+       <br>
+      </div>
+      <div class="col-md-6 col-xs-12 align-right">
+        <div class="navbar">
+          <a class="button-back" href="javascript: history.back(-1)">
+            <i class="fa fa-undo"></i> Voltar
+          </a>
+        </div>       
+        <br>
+      </div>
+    </div>
+    <hr style="margin: 0px;">
+    <div class="row">
+      <br>
+      <h3>Use as opções abaixo para navegar nas principais funcionalidades de nossa API.</h3>
+
+
+      <br><br>
+
+      <!-- Option Listar Conjuntos de Dados -->
+      <div class="col-md-3">
+        <div class="navbar open-text">
+          <a href ng-click="aListConjuntos=!aListConjuntos" ng-class="{'button-open': aListConjuntos == true, 'button-close': aListConjuntos == false}">
+            <i class="fa fa-plus-circle" aria-hidden="true" ng-hide="!aListConjuntos"></i> 
+            <i class="fa fa-times-circle black" aria-hidden="true" ng-hide="aListConjuntos" ></i>
+            Como listar todos conjuntos de dados do portal?
+          </a>
+        </div>       
+        <br>
+      </div>
+
+      <!-- Option Visualizar metadados de um conjunto de dados -->
+      <div class="col-md-3">
+        <div class="navbar open-text">
+          <a href ng-click="aListMetadados=!aListMetadados" ng-class="{'button-open': aListMetadados == true, 'button-close': aListMetadados == false}">
+            <i class="fa fa-plus-circle" aria-hidden="true" ng-hide="!aListMetadados"></i> 
+            <i class="fa fa-times-circle black" aria-hidden="true" ng-hide="aListMetadados" ></i>
+            Como visualizar os metadados de um conjuntos de dados?
+          </a>
+        </div>       
+        <br>
+      </div>
+
+      <!-- Option SubCoonjunto-->
+      <div class="col-md-3">
+        <div class="navbar open-text">
+          <a href ng-click="aSubconjunto=!aSubconjunto" ng-class="{'button-open': aSubconjunto == true, 'button-close': aSubconjunto == false}">
+            <i class="fa fa-plus-circle" aria-hidden="true" ng-hide="!aSubconjunto"></i> 
+            <i class="fa fa-times-circle black" aria-hidden="true" ng-hide="aSubconjunto"></i>
+            Como consultar subconjuntos de dados?
+          </a>
+        </div>       
+        <br>
+      </div>
+
+      <!-- Option Recuperar Dados/Formato -->
+      <div class="col-md-3">
+        <div class="navbar open-text">
+          <a href ng-click="aDadosFormato=!aDadosFormato" ng-class="{'button-open': aDadosFormato == true, 'button-close': aDadosFormato == false}">
+            <i class="fa fa-plus-circle" aria-hidden="true" ng-hide="!aDadosFormato"></i> 
+            <i class="fa fa-times-circle black" aria-hidden="true" ng-hide="aDadosFormato"></i>
+            Como recuperar todos os dados em formato desejado?
+          </a>
+        </div>       
+        <br>
+      </div>
+
+      <!-- Option Sugestões de Conjuntos de Dados -->
+      <div class="col-md-3">
+        <div class="navbar open-text">
+          <a href ng-click="aListSugestoes=!aListSugestoes" ng-class="{'button-open': aListSugestoes == true, 'button-close': aListSugestoes == false}">
+            <i class="fa fa-plus-circle" aria-hidden="true" ng-hide="!aListSugestoes"></i> 
+            <i class="fa fa-times-circle black" aria-hidden="true" ng-hide="aListSugestoes"></i>
+            Como verificar as sugestões para os próximos conjuntos de dados?
+          </a>
+        </div>       
+        <br>
+      </div>
+
+      <!-- Option Versão -->
+      <div class="col-md-3">
+        <div class="navbar open-text">
+          <a href ng-click="aVersionList=!aVersionList" ng-class="{'button-open': aVersionList == true, 'button-close': aVersionList == false}">
+            <i class="fa fa-plus-circle" aria-hidden="true" ng-hide="!aVersionList"></i> 
+            <i class="fa fa-times-circle black" aria-hidden="true" ng-hide="aVersionList"></i>
+            Como visualizar todas as versões disponíveis de um conjunto de dados?
+          </a>
+        </div>       
+        <br>
+      </div>
+
+      <!-- Option Versão -->
+      <div class="col-md-3">
+        <div class="navbar open-text">
+          <a href ng-click="aVersion=!aVersion" ng-class="{'button-open': aVersion == true, 'button-close': aVersion == false}">
+            <i class="fa fa-plus-circle" aria-hidden="true" ng-hide="!aVersion"></i> 
+            <i class="fa fa-times-circle black" aria-hidden="true" ng-hide="aVersion"></i>
+            Como recuperar um conjunto de dados em uma versão específica?
+          </a>
+        </div>       
+        <br>
+      </div>
+
+
+
+    </div>
+
+
+
+    <!--ListConjuntos -->
+    <div class="row" ng-hide="aListConjuntos">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Como listar conjuntos de dados?
+        </h3>
+        <div class="col-xs-12 col-md-12" align="left">
+          <p style="text-align: left; font-size: 16px;">Para listar conjuntos de dados, a API deve ser consumida por meio de uma requisição HTTP GET para: </p>
+           <code> http://dados.ufpe.br/iago/open/list_datasets</code><br><br>
+           
+          <p style="font-size: 16px;">
+            Em resposta, a API retornará os seguintes valores em formato application/JSON:
+          </p>
+
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">datasetTitle</th>
+                <td class="description-data">Nome do Conjunto de Dados</td>
+              </tr>
+              <tr>
+                <th class="description-data">keywords  </th>
+                <td class="description-data">Palavras-chave que descrevem o conjunto de dados</td>
+              </tr>
+              <tr>
+                <th class="description-data">collectorDataset  </th>
+                <td class="description-data">Identificador do conjunto de dados para acessá-lo no portal</td>
+              </tr>
+              <tr>
+                <th class="description-data">description  </th>
+                <td class="description-data">Breve descrição do conjunto de dados</td>
+              </tr>
+              <tr>
+                <th class="description-data">publisher  </th>
+                <td class="description-data">O responsável pela publicação do conjunto de dados</td>
+              </tr>   
+              <tr>
+                <th class="description-data">category  </th>
+                <td class="description-data">A categoria que o conjunto de dados se enquadra</td>
+              </tr>   
+              <tr>
+                <th class="description-data">views  </th>
+                <td class="description-data">O total de visualizações do conjunto de dados</td>
+              </tr>              
+            </tbody>
+          </table><br>
+        </div>
+        
+      </div>
+    </div>
+    <!--/ListConjuntos-->
+
+
+    <!--ListMetadados -->
+    <div class="row" ng-hide="aListMetadados">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Como visualizar os metadados de conjuntos de dados?
+        </h3>
+        <div class="col-xs-12 col-md-12" align="left">
+          <p style="text-align: left; font-size: 16px;">Para listar os metadados em DCAT de um conjuntos de dados, a API deve ser consumida por meio de uma requisição HTTP GET para: </p>
+           <code> http://dados.ufpe.br/iago/open/dcat/{datasetTitle}</code><br><br>
+          <p> É necessário enviar o seguinte parâmetro: </p>
+          
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">datasetTitle</th>
+                <td class="description-data">Nome do Conjunto de Dados</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="font-size: 16px;">
+            Em resposta, A API retornará todos os metadados em formato application/JSON. A descrição dos metadados podem ser encontradas no <a href="https://www.w3.org/TR/vocab-dcat/" target="_blank">Vocabulário DCAT</a>.
+          </p>
+
+          <br>
+        </div>
+        
+      </div>
+    </div>
+    <!--/ListMetadados-->
+
+    <!--SubConjuntos -->
+    <div class="row" ng-hide="aSubconjunto">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Como consultar subconjuntos de dados? 
+        </h3>
+        <div class="col-xs-12 col-md-12" align="left">
+          <p style="text-align: left; font-size: 16px;">Para consultar subconjuntos de dados, a API deve ser consumida. Para isso, é necessário enviar uma requisição HTTP POST em formato application/JSON para: </p>
+           <code> http://dados.ufpe.br/iago/open/execute_query</code><br><br>
+           <p> Os parâmetros a serem preenchidos são: </p>
+          
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">
+                  datasetName
+                </th>
+                <td class="description-data">
+                  Nome do Conjunto de Dados em que o subconjunto deve se originar
+                </td>
+              </tr>
+              <tr>
+                <th class="description-data">version </th>
+                <td class="description-data">Versão do Conjunto de Dados que o subconjunto deve se originar</td>
+              </tr>
+              <tr>
+                <th class="description-data">parameters </th>
+                <td class="description-data">Lista de parâmetros em que será realizada a filtragem, por ser em formato Map, é totalmente flexível para que possa receber qualquer propriedade para a verificação. A comparação deve ser feita apenas em chave-valor.</td>
+              </tr>
+              <tr>
+                <th class="description-data">limit </th>
+                <td class="description-data">Limite máximo de registros a serem retornados. O valor máximo é de 10000.</td>
+              </tr>
+              <tr>
+                <th class="description-data">page </th>
+                <td class="description-data">Página referente ao resultado obtido. Cada página contém 10000 registros. Recomenda-se que para a primeira requisição, o campo seja preenchido com o valor “1”.</td>
+              </tr>
+              
+            </tbody>
+          </table>
+          
+
+          <p style="font-size: 16px;">Supondo que uma consulta seja realizada em um conjunto de dados hipotético "Alunos", em que o usuário deseje retornar alunos com idade de 20 anos do curso de Ciência da Computação:
+          </p> 
+          <code style="background: none">
+            <pre>
+              {
+                "datasetName" : "Alunos",
+                "version" : "42891448230",
+                "parameters" : {
+                      "idade" : "20",
+                      "curso" : "Ciência da Computação"
+              },
+                "limit" : "2000",
+                "page" : 1
+              }
+            </pre>
+          </code> 
+
+          <p style="font-size: 16px;">
+            Em resposta, A API retornará os seguintes valores em formato application/JSON:
+          </p>
+
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">
+                  datasetName
+                </th>
+                <td class="description-data">
+                  Nome do Conjunto de Dados em que o subconjunto se originou
+                </td>
+              </tr>
+              <tr>
+                <th class="description-data">pagesNumber  </th>
+                <td class="description-data">Número total de páginas do resultado da consulta. Cada página contém no máximo 10000 registros</td>
+              </tr>
+              <tr>
+                <th class="description-data">rowsNumber  </th>
+                <td class="description-data">Número total de registros do resultado da consulta</td>
+              </tr>
+              <tr>
+                <th class="description-data">atualPage  </th>
+                <td class="description-data">Página referente aos registros retornados</td>
+              </tr>
+              <tr>
+                <th class="description-data">data  </th>
+                <td class="description-data">Dados de retorno</td>
+              </tr>              
+            </tbody>
+          </table><br>
+        </div>
+        
+      </div>
+    </div>
+    <!--/Subconjuntos-->
+
+
+    <!-- aDadosFormato -->
+    <div class="row" ng-hide="aDadosFormato">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Como recuperar todos os dados em formato desejado?
+        </h3>
+        <div class="col-xs-12 col-md-12" align="left">
+          <p style="text-align: left; font-size: 16px;">Para recuperar os dados em um formato específico, você deve consumir a API enviando uma requisição HTTP GET para: </p>
+           <code> http://dados.ufpe.br/iago/open/{datasetTitle}/format/{formato}/download</code><br><br>
+           <p> Em que os parâmetros {datasetTitle} e {formato} devem ser preenchidos: </p>
+          
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">datasetName</th>
+                <td class="description-data">Nome do Conjunto de Dados em que o subconjunto deve se originar</td>
+              </tr>
+              <tr>
+                <th class="description-data">formato </th>
+                <td class="description-data">O formato físico do arquivo a ser recuperado (exemplo: XML, CSV, JSON) </td>
+              </tr>              
+            </tbody>
+          </table>
+
+          <p style="font-size: 16px;">
+            Em resposta, a API exportarará o arquivo no formato especificado.
+          </p>
+
+        </div>
+        
+      </div>
+    </div>
+    <!-- /aDadosFormato -->
+
+    <!-- aListSugestoes -->
+    <div class="row" ng-hide="aListSugestoes">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Como verificar as sugestões para os próximos conjuntos de dados?
+        </h3>
+        <div class="col-xs-12 col-md-12" align="left">
+          <p style="text-align: left; font-size: 16px;">Para recuperar as sugestões enviadas para os próximos conjuntos de dados, é necessário consumir a API enviando uma requisição HTTP GET para: </p>
+           <code> http://dados.ufpe.br/iago/open/list_suggestions</code><br><br>
+           <p> Em resposta, API retornará os seguintes valores em formato application/JSON: </p>
+          
+          <code style="background: none">
+            <pre>
+            {
+              "description": "string",
+              "email": "string",
+              "name": "string",
+              "solicitationDate": "2018-09-24T22:57:50.064Z",
+              "status": "EVALUATION"
+            }
+            </pre>
+          </code> 
+
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">description</th>
+                <td class="description-data">A descrição da solicitação enviada.</td>
+              </tr>
+              <tr>
+                <th class="description-data">email </th>
+                <td class="description-data">O e-mail de quem solicitou, para tirar dúvidas ou enviar sugestões. </td>
+              </tr>  
+              <tr>
+                <th class="description-data">name </th>
+                <td class="description-data">O nome de quem solicitou </td>
+              </tr>              
+              <tr>
+                <th class="description-data">solicitationDate </th>
+                <td class="description-data">Data da solicitação </td>
+              </tr>  
+              <tr>
+                <th class="description-data">status </th>
+                <td class="description-data">O status indicando se foi aceito (ACCEPTED), se está em avaliação (EVALUATION) ou se não foi aceito (NOT ACCEPTED). </td>
+              </tr>  
+            </tbody>
+          </table>
+
+        </div>
+        
+      </div>
+    </div>
+    <!-- /aListSugestoes -->
+
+    <!-- aVersionList -->
+    <div class="row" ng-hide="aVersionList">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Como visualizar todas as versões disponíveis de um conjunto de dados?
+        </h3>
+        <div class="col-xs-12 col-md-12" align="left">
+          <p style="text-align: left; font-size: 16px;">Para visualizar todas as versões disponíveis de um conjunto de dados, a API deve ser consumida por meio de uma requisição HTTP GET para: </p>
+           <code> http://dados.ufpe.br/iago/open/{datasetTitle}/list_versions</code><br><br>
+          <p> É necessário enviar o seguinte parâmetro: </p>
+          
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">datasetTitle</th>
+                <td class="description-data">Nome do Conjunto de Dados</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="font-size: 16px;">
+            Em resposta, A API retornará todas as versões do conjuntos de dados em formato application/JSON.
+          </p>
+          <code style="background: none">
+            <pre>
+            {
+              "date": "2018-09-24T22:57:50.064Z",
+              "description": "string",
+              "version": "string"
+            }
+            </pre>
+          </code> 
+
+
+          <br>
+        </div>
+        
+      </div>
+    </div>
+    <!--/aVersionList -->
+
+    <!-- aVersion -->
+    <div class="row" ng-hide="aVersion">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Como recuperar um conjunto de dados em uma versão específica?
+        </h3>
+        <div class="col-xs-12 col-md-12" align="left">
+          <p style="text-align: left; font-size: 16px;">Para recuperar os dados em uma versão específica, você deve consumir a API enviando uma requisição HTTP GET para: </p>
+           <code> http://dados.ufpe.br/iago/open/{datasetTitle}/version/{versionId}</code><br><br>
+           <p> Em que os parâmetros {datasetTitle} e {versionId} devem ser preenchidos: </p>
+          
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th class="description-data">datasetName</th>
+                <td class="description-data">Nome do Conjunto de Dados em que o subconjunto deve se originar</td>
+              </tr>
+              <tr>
+                <th class="description-data">versionId </th>
+                <td class="description-data">O identificador da versão desejada</td>
+              </tr>              
+            </tbody>
+          </table>
+
+          <p style="font-size: 16px;">
+            Em resposta, a API permitirá a recuperação de todos os dados na versão especificada em formato application/JSON.
+          </p>
+
+        </div>
+        
+      </div>
+    </div>
+    <!--/aVersion -->
+
+   
+
+    <br><br>
+    Outras consultas podem ser realizadas <a href="/iago/documentacao">aqui</a>
+
+    
+</div>
+</div>
+
+    

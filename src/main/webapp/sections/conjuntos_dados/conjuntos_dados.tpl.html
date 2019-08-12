@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <h2 class="header-title"> Conjuntos de Dados </h2><hr>
+    </div>
+    <div class="col-md-12">  
+      <div class="row" st-safe-src="conjuntos_dados.rowCollection" st-table="rowCollectionData">
+        <div class="col-xs-12">
+            <button class="btn" id="btn-search" type="submit" value="Pesquisar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+            <input placeholder="Buscar conjunto de dados" class="input-lg form-control search-input" ng-model="query"/>
+        </div> 
+      </div><br><br>
+      
+      <div class="col-xs-12 align-center">
+        <h4>Total de Conjuntos de Dados: {{conjuntos_dados.rowCollection.length}}</h4>
+      </div>
+
+      <div class="row">
+         <div class="col-md-3">
+          <accordion close-others="false" style="cursor: pointer" > <!--oneAtATime-->
+            <accordion-group heading="Categorias" is-open="true" is-disabled="true">
+              <!--Lista as categorias -->             
+              <div class="list-group ">
+                <a class="list-group-item list-group-item-action" 
+                  ng-repeat="row in conjuntos_dados.rowCategories" style="text-transform: capitalize;">{{row.name}}</a>
+              </div>
+            </accordion-group>
+            <accordion-group heading="Produtor/Setor" is-open="true" is-disabled="true">
+            	<a class="list-group-item list-group-item-action" 
+                  ng-repeat="pub in conjuntos_dados.publishers" style="text-transform: capitalize;">{{pub}}</a>
+            </accordion-group>
+            <accordion-group heading="Tags/Palavras-chave" is-open="true" is-disabled="true">
+            	<a class="list-group-item list-group-item-action" 
+                  ng-repeat="key in conjuntos_dados.keywords" style="text-transform: capitalize;">{{key}}</a>
+            </accordion-group>
+          </accordion>       
+
+           <!--
+           <div class="single-pricing-box">
+               <h3><i class="fa fa-database" aria-hidden="true"></i> {{row.datasetTitle | uppercase}}</h3>
+               <div class="pricing-list">
+                   <ul>
+                   <li>Produtor: {{row.publisher | uppercase}}</li>
+                   <li>Categoria: {{row.theme | uppercase}}</li>
+                   <li>Keywords: <span class="tag label label-default">{{row.keywords}}</span></li>
+                   <li>Views: </li>
+               </ul>
+               </div>
+               <a href="#/details/{{row.identifierUri}}" class="bordered-btn">Visualizar</a>
+           </div>
+          -->
+        </div>
+        <div class="col-md-9">
+          <div class="list-group" ng-repeat="row in conjuntos_dados.rowCollection | filter:query">
+            <a href="#/details/{{row.identifierUri}}" class="list-group-item list-group-item-action flex-column align-items-start" title="Clique para visualizar o Conjunto de Dados {{row.datasetTitle | uppercase }}">
+              
+              <!-- Total de Views -->
+              <span class="badge badge-success" ng-show="row.views >= 1"><i class="glyphicon glyphicon-stats"></i> {{row.views}}</span>
+              
+              <!-- Header Dataset -->
+              <div class="align-left" style="border-bottom: 1px solid #ebebeb;">
+                <h3 class="">
+                  {{row.datasetRealName | uppercase }}&nbsp;&nbsp;
+                  <small class="text-muted"><span class="tag label label-default">{{row.category}}</span></small>
+                </h3>
+              </div>
+
+              <!-- Descrição -->
+              <div class="padding-5 align-left text-muted"><strong>Descrição:</strong> {{row.description}}...</div>
+              <div class="padding-5 align-left text-muted"><strong>Produtor:</strong> {{row.publisher}}</div>
+              <div class="padding-5 align-left text-muted"><strong>Palavras-chave:</strong> {{row.keywords}}</div>
+              
+
+            </a>
+            
+          </div>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+</div>

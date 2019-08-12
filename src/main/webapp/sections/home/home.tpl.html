@@ -1,0 +1,175 @@
+<div class="home-frame">
+    <div class='bg-datasets'>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+                <p style="font-size: 14px; text-align: justify;">
+                  No Portal de Dados Abertos da UFPE, podem ser encontrados dados acadêmicos, administrativos e orçamentários da instituição. Os dados podem ser livremente acessados e utilizados para diversos fins, tais como a criação de aplicativos, análises ou visualizações. <a href="./#/indicadores" style="color: orange">Veja aqui</a> alguns exemplos de uso dos dados!
+                  <br><br>
+                  Acesse os dados e conheça melhor a nossa instituição!
+                </p>
+                <!--<button type="button" class="btn btn-portal btn-lg ">Saiba mais</button>-->
+            </div>
+            <div class="col-md-6" >
+              <div class="row">
+                <div class="col-md-6" style="text-align: right;">
+                <span class="glyphicon glyphicon-duplicate" aria-hidden="true" style="font-size: 100px;color: #fff;"></span>
+                </div>
+                <div class="col-md-4" style="text-align: right;">
+                  <span id="numero-datasets"> {{home.rowCollection.length}}</span> 
+                  <p id="datasets">Conjuntos de dados</p>
+                </div>
+                <div class="col-md-2">
+                </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center" style="padding: 40px">
+                <h2 style="color:#000000;margin-top:0px;margin-bottom:20px;"> Descubra nossos Dados </h2>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-sm-4 col-xs-12" id="icon-content">
+            <img class="icon-home" src="assets/images/conjuntos_favoritos.svg">
+            <a href="#/conjuntos_dados" id="grupo-estatistica">
+              <h3 class="title-icon">Conjuntos de Dados mais Populares</h3>
+            </a>
+            <p> Encontre alguns dos dados mais populares do portal.</p>
+          </div>
+          <div class="col-sm-4 col-xs-12" id="icon-content">
+            <img class="icon-home" src="assets/images/conjuntos_categoria.svg">
+            <a href="#/conjuntos_dados" id="grupo-estatistica">
+              <h3 class="title-icon">Conjuntos de Dados por Categoria</h3>
+            </a>
+            <p> Encontre os dados por categoria. Ex: Educação, Cursos.</p>
+          </div> 
+
+           <div class="col-sm-4 col-xs-12" id="icon-content">
+            <img class="icon-home" src="assets/images/conjuntos_novos.svg">
+            <a href="#/conjuntos_dados" id="grupo-estatistica">
+              <h3 class="title-icon">Novos Conjuntos de Dados adicionados</h3>
+            </a>
+            <p> Visualize os dados adicionados recentemente.</p>
+          </div>
+             
+
+        </div>
+    </div>
+    
+    <div class="back-blue">
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom: 60px;">
+            
+            <div class="col-md-12 text-center" style="padding: 40px">
+                <h2 style="color:#ffffff;margin-top:60px;margin-bottom:20px;"> Solicite um Novo Conjunto de Dados </h2> 
+                <p style="font-size: 14px; color:#ffffff;">
+                  Para tornar o processo de disponibilização dos dados ainda mais interessante, solicite os dados que você gostaria de ter acesso e que ainda não estão disponíveis no portal de Dados Abertos da UFPE. O processo é simples, basta preencher o formulário abaixo.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="assets/images/solicitacao.png">
+                <br>
+                <a href="#/solicitacoes_conjuntos_dados/#topo" class="btn btn-portal btn-lg ">Acompanhe as solicitações realizadas</a>
+            </div>
+            <div class="col-md-6">
+              <form novalidate name="form" class="form-horizontal">
+                <div class="md-form">
+                  <label for="name" class="left" id="text-white">Nome:</label>
+                  <input type="text" name="name" class="form-control" placeholder="Digite o seu Nome" required ng-model="suggestion.name" autocomplete="off">
+                  <div ng-if="form.name.$invalid && form.name.$touched" style="color:yellow;">
+                    <div ng-if="form.name.$error.required">Por favor, informe seu nome.</div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <label for="email" class="left" id="text-white">Email:</label>
+                  <input type="email" name="email" class="form-control" placeholder="Digite o seu Email" required ng-model="suggestion.email" autocomplete="off">
+                  <div ng-if="form.email.$invalid && form.email.$touched" style="color:yellow;">
+                    <div ng-if="form.email.$error.required">Por favor, informe seu email.</div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <label for="description" class="left" id="text-white">Descrição do Conjunto de Dados: *</label>
+                  <textarea name="description" required class="form-control" rows="4" placeholder="Descreva o conjunto de dados que deseja solicitar." ng-model="suggestion.description"  autocomplete="off"></textarea>
+                  <div ng-if="form.description.$invalid && form.description.$touched" style="color:yellow;">
+                    <div ng-if="form.description.$error.required">Por favor, informe a descrição do conjunto de dados que deseja solicitar.</div>
+                  </div>
+                </div>
+                <!--<pre>suggestion = {{suggestion | json}}</pre>-->
+                <div class="md-form" style="margin-top: 25px;">
+                    <button class="btn btn-primary" title="Clique para solicitar" ng-disabled="!form.$valid" ng-click="update(suggestion)">Enviar</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center" style="padding: 40px">
+                <h2 style="color:#000000;margin-top:60px;margin-bottom:40px;"> O que pode ser feito com os dados abertos?</h2>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 50px;">
+          <div class="col-sm-6 col-xs-12" style="text-align: right;">
+            <img src="assets/images/charts.png" style="width: 90%;margin-top: -40px;">
+          </div>
+
+          <div class="col-sm-6 col-xs-12">
+            <p class="left">
+              Após a publicação em formato aberto, os dados podem ser utilizados por terceiros com  fins diversos, como a criação de aplicativos, sites, análises ou visualizações. Os dados abertos também são uma importante fonte de informação para meios de comunicação, sendo muito úteis para reportagens e criação de infográficos. A ideia principal com a abertura dos dados é possibilitar sua transformação, de forma colaborativa, em informação intuitiva, simplificada e facilmente acessível por indivíduos, organizações públicas ou privadas e movimentos sociais. <a href="./#/indicadores">Confira aqui</a> alguns exemplos de uso dos Dados Abertos da UFPE.
+            </p>
+          </div>
+              
+
+        </div>
+    </div>
+   <!-- <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center" style="padding: 40px">
+                <h2 style="color:#000000;margin-top:60px;margin-bottom:40px;"> Estatísticas </h2>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 50px;">
+          <div class="col-sm-3 col-xs-6">
+            <a href="/en/dataset" id="grupo-estatistica">
+              <div class="estatistica">
+                2348 <i class="fa fa-files-o"></i>
+              </div> 
+              <p>Datasets</p>
+            </a>
+          </div>
+          <div class="col-sm-3 col-xs-6">
+            <a href="/en/dataset" id="grupo-estatistica">
+              <div class="estatistica">
+                2348 <i class="fa fa-users"></i>
+              </div>
+              <p>Departamentos</p>
+            </a>
+          </div>
+           <div class="col-sm-3 col-xs-6">
+            <a href="/en/dataset" id="grupo-estatistica">
+              <div class="estatistica">
+                2348 <i class="fa fa-graduation-cap "></i>
+              </div>
+              <p>Cursos</p>
+            </a>
+          </div>
+          <div class="col-sm-3 col-xs-6">
+            <a href="/en/dataset" id="grupo-estatistica">
+              <div class="estatistica">
+                2348 <i class="fa fa-tags "></i>
+              </div>
+              <p>Categorias</p>
+            </a>
+          </div>          
+
+        </div>
+    </div>-->
+    
+</div>

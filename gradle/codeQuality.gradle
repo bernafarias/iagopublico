@@ -1,0 +1,37 @@
+/*
+ * Arquivo para declaração de plugins relacionados a qualidade de código
+ * como checkstyle, jacoco, PMD, sonar, entre outros.
+ *
+ * Caso não seja utilizado determinado plugin, apagar o código referente a ele.
+ * 
+ * Dúvidas sobre como declarar plugins, consultar: https://docs.gradle.org/current/userguide/plugins.html
+ *
+ * author: marcela.poliveira - 26/07/2016
+ */
+
+// Declaração do(s) plugin(s) utilizado(s) - em ordem alfabética
+apply plugin: "jacoco"
+
+// Configurações do jacoco
+jacoco {
+	toolVersion = "0.7.7.201606060606" // Caso necessário, mudar a versão da ferramenta
+}
+
+// Configurações do relatório do jacoco
+jacocoTestReport {
+	reports {
+		xml.enabled = false
+		html.enabled = true
+		html.destination file("$project.buildDir/reports/jacoco")
+	}
+
+
+	afterEvaluate {
+		classDirectories = files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: 
+				['br/com/sgdw/domain',                
+                'br/com/sgdw/service/exception',               
+                'br/com/sgdw/util/constantes'])
+		})
+	}
+}

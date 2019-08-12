@@ -1,0 +1,347 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <h2 class="header-title"> Indicadores </h2>
+        <hr>
+    </div>
+    
+
+      <div class="col-md-12 col-xs-12">
+        <h1 class="title-dataset ng-binding">Censo 2017 <span class="span-title ng-binding">education</span></h1>
+         
+       <br>
+      </div>
+
+      <div class="col-md-8 padding-top-10">
+        <p class="align-left"><span style="font-size: 15px; color:#333;"><b>DESCRIÇÃO:</b> </span><br> A Pró-Reitoria de Planejamento, Orçamento e Finanças disponibiliza a toda comunidade acadêmica e à sociedade em geral os dados utilizados para gerar o Censo Universitário da Universidade Federal de Pernambuco do ano de 2017. Esses dados visam fornecer os resultados obtidos pela instituição sob os pontos de vista estudantil.</p>
+      </div>
+      <div class="col-md-4 padding-top-10 border-left">
+        <p class="title-dataset ng-binding" style="font-size: 15px; color:#333;font-weight: bold;margin-bottom: 10px;">CONJUNTOS DE DADOS ENVOLVIDOS: </p>
+        <div class="align-right">
+          <div class="navbar">
+            <ul class="nav navbar-nav">
+              <li class="active">
+                <a href ng-href="#/details/Dados_Discentes_Censo_2017" target="_blank">
+                  <i class="fa fa-database" aria-hidden="true"></i> 
+                  Dados Discentes</a>
+              </li>
+              <li class="active" style="margin-left: 10px;">
+                <a href ng-href="#/details/Dados_Cursos_Censo_20172" target="_blank">
+                  <i class="fa fa-database" aria-hidden="true"></i> 
+                  Dados Cursos</a>
+              </li>
+            </ul>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+     
+  </div><br/><br/>
+  <div class="col-md-4">
+    <div class="list-group">
+      <a ng-click="scrollTo('graduacao')" class="list-group-item list-group-item-action" style="cursor:pointer"><i class="fa fa-graduation-cap" aria-hidden="true"></i> GRADUAÇÃO</a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="list-group">
+      <a ng-click="scrollTo('docentes')" class="list-group-item list-group-item-action" style="cursor:pointer"><i class="fa fa-users" aria-hidden="true"></i> DOCENTES</a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="list-group">
+      <a ng-click="scrollTo('areasTematicas')" class="list-group-item list-group-item-action" style="cursor:pointer"><i class="fa fa-sitemap" aria-hidden="true"></i> EXTENSÃO</a>
+    </div>
+  </div>
+ 
+    <div class="row">
+
+      <div class="col-md-8 col-xs-12 col-md-offset-2 padding-top-10">
+        <br/><br/><br/>
+        <!-- grafico #1 -->
+        <hc-chart options="chartOptions"></hc-chart>
+      </div>
+    </div>
+    <br/><br/>
+
+  <section id="graduacao"> 
+    <div class="row">
+      <div class="col-md-12">
+        <h4 id="graduacao" class="align-left"> <i class="fa fa-graduation-cap" aria-hidden="true"></i> GRADUAÇÃO - DADOS CENSO 2017 </h4><hr>
+      </div>
+      <div class="col-md-8">
+        <table st-table="vm.rowCollectionDetails" class="table table-striped">
+          <thead>
+            <tr>
+              <td id="td-head">CAMPI</td>
+              <td id="td-head">CURSOS</td>
+              <td id="td-head"> INGRESSANTES</td>
+              <td id="td-head">MATRICULADOS</td>
+              <td id="td-head">CONCLUINTES</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="description-data">CARUARU</td>
+              <td class="description-data">12</td>
+              <td class="description-data">1.045</td>
+              <td class="description-data">5.237</td>
+              <td class="description-data">414</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">87</td>
+              <td class="description-data">5.667</td>
+              <td class="description-data">29.274</td>
+              <td class="description-data">3.321</td>
+            </tr>
+            <tr>
+              <td class="description-data">VITÓRIA</td>
+              <td class="description-data">6</td>
+              <td class="description-data">422</td>
+              <td class="description-data">2.067</td>
+              <td class="description-data">236</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+          <br/><br/>
+          <p class="align-left"><strong>Observação:</strong> Os dados informados nos indicadores são referentes aos cursos de graduação do ano de 2017.</p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td id="td-head">CAMPI</td>
+              <td id="td-head">CENTRO</td>
+              <td id="td-head"> Nº DE CURSOS <span style="font-size: 11px; color:#000;">(PRESENCIAL, EAD¹, PARFOR²)</span> </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="description-data">CARUARU</td>
+              <td class="description-data">CENTRO ACADÊMICO DO AGRESTE - CAA</td>
+              <td class="description-data">12</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE ARTES E COMUNICAÇÃO - CAC</td>
+              <td class="description-data">27</td>
+              
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE BIOCIÊNCIAS - CB</td>
+              <td class="description-data">4</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE CIÊNCIAS EXATAS E DA NATUREZA - CCEN</td>
+              <td class="description-data">9</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE CIÊNCIAS JURÍDICAS - CCJ</td>
+              <td class="description-data">1</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE CIÊNCIAS DA SAÚDE - CCS</td>
+              <td class="description-data">11</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE CIÊNCIAS SOCIAIS APLICADAS - CCSA</td>
+              <td class="description-data">8</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE EDUCAÇÃO - CE</td>
+              <td class="description-data">8</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE FILOSOFIA E CIÊNCIAS HUMANAS - CFCH</td>
+              <td class="description-data">14</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE INFORMÁTICA - CIN</td>
+              <td class="description-data">3</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">CENTRO DE TECNOLOGIA E GEOCIÊNCIAS - CTG</td>
+              <td class="description-data">18</td>
+            </tr>
+            <tr>
+              <td class="description-data">VITÓRIA</td>
+              <td class="description-data">CENTRO ACADÊMICO DE VITÓRIA - CAV</td>
+              <td class="description-data">6</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="align-left" style="font-size: 11px; color:#000;">¹ EAD - Educação a distância; ² PARFOR - Plano Nacional de Formação de Professores da Educação Básica</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 padding-top-10">
+        <br><br>
+        <!-- grafico #2 -->
+        <hc-pie-chart data="pieData"></hc-pie-chart>
+      </div>
+      <div class="col-md-8 col-md-offset-2 padding-top-10">
+        <br><br>
+        <!-- grafico #3 -->
+        <hc-bar options="barOptions"></hc-bar>
+      </div>
+    </div>
+    
+    <br><br><br>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td id="td-head"></td>
+              <td id="td-head">DIURNO</td>
+              <td id="td-head"> NOTURNO </td>
+              <td id="td-head"> TOTAL </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="description-data" id="td-head" width="25%">INGRESSANTES</td>
+              <td class="description-data">5.041</td>
+              <td class="description-data">2.093</td>
+              <td class="description-data">7.134</td>
+            </tr>
+            <tr>
+              <td class="description-data" id="td-head">MATRICULADOS</td>
+              <td class="description-data">26.272</td>
+              <td class="description-data">10.689</td>
+              <td class="description-data">36.960</td>
+            </tr>
+            <tr>
+              <td class="description-data" id="td-head">CONCLUINTES</td>
+              <td class="description-data">2.785</td>
+              <td class="description-data">1.186</td>
+              <td class="description-data">3.971</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+    <br><br>
+  <section id="docentes"> 
+    <div class="row">
+      <div class="col-md-12">
+        <h4 id="docentes"  class="align-left"> <i class="fa fa fa-users" aria-hidden="true"></i> DOCENTES - DADOS CENSO 2017</h4> <hr>
+      </div>
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td id="td-head">CAMPUS</td>
+              <td id="td-head">NÍVEL DE ENSINO</td>
+              <td id="td-head"> TOTAL </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="description-data">CARUARU</td>
+              <td class="description-data">ENSINO SUPERIOR</td>
+              <td class="description-data">327</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">ENSINO FUNDAMENTAL E MÉDIO</td>
+              <td class="description-data">60</td>
+            </tr>
+            <tr>
+              <td class="description-data">RECIFE</td>
+              <td class="description-data">ENSINO SUPERIOR</td>
+              <td class="description-data">2.324</td>
+            </tr>
+            <tr>
+              <td class="description-data">VITÓRIA</td>
+              <td class="description-data">ENSINO SUPERIOR</td>
+              <td class="description-data">188</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-7" style="margin-left: -7%;">
+        <br><br>
+        <!-- grafico #4 -->
+        <hc-pie data="pie"></hc-pie>
+      </div>
+      <div class="col-md-5" style="margin-left: -7%;">
+        <br><br>
+        <!-- grafico #5 -->
+        <hc-pie-titulacao data="pieTitulacao"></hc-pie-titulacao>
+      </div>
+      
+    </div>
+  </section>
+  <section id="extensao">
+    <div class="row"><br><br><br>
+      <div class="col-md-12">
+        <h4 id="areasTematicas" class="align-left"> <i class="fa fa-sitemap" aria-hidden="true"></i> EXTENSÃO - ÁREAS TEMÁTICAS</h4> <hr>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">COMUNICAÇÃO</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">CULTURA</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">DIREITOS HUMANOS</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">EDUCAÇÃO</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">MEIO AMBIENTE</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">SAÚDE</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">TECNOLOGIA E PRODUÇÃO</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <p class="list-group-item list-group-item-action" style="text-transform: capitalize;">TRABALHO</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<br><br><br>
+  </div>
+</div>

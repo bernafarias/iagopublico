@@ -1,0 +1,108 @@
+td#td-head{
+	font-weight: bold;
+}
+
+input{
+    border-radius: 0px;
+    border: 1px solid #EDEDED;
+    margin-bottom: 10px;
+} 
+.form-control2{
+    width: auto !important;
+}
+
+.myGrid {
+width: 500px;
+height: 250px;
+}
+
+.ui-grid-header-canvas {
+    background: #C00 !important;
+}
+
+.button-dropdown{
+	 border: 1px solid #ddd;
+    color: #333;
+    display: inline-block;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.table-dotted {
+  border: 1px dashed #cccccc;
+  border-collapse: collapse;
+}
+.table-dotted th {
+    text-align: center;
+}
+
+
+.button-open{
+    border: 1px solid #ddd;
+    color: #333;
+    display: inline-block;
+    padding: 15px 15px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.button-open:hover{
+    cursor: pointer;
+    background-color: #808183;
+    color: white !important;
+    text-decoration: none;
+}
+
+.button-open:link{
+    text-decoration: none;
+    color: white !important;
+}
+
+.button-open:visited{
+    text-decoration: none;
+    color: #333;
+}
+
+.button-open h4 {
+    margin: 0;
+}
+
+.open-text h4 a:hover{
+    color: white !important;
+}
+
+.gree {
+    color: green;
+}
+
+.black {
+    color: #211f20;
+}
+
+.button-close{
+    border: 1px solid #ddd;
+    color: white !important;
+    cursor: pointer;    
+    display: inline-block;
+    background-color: #808183;
+    padding: 15px 15px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration: none;
+}
+.button-close:hover{
+    opacity: 0.8;
+}
+.button-close:visited{
+    text-decoration: none !important;
+}
+.button-close:link {
+    text-decoration: none !important;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dados Abertos - UFPE</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- build:css assets/css/styles.css -->
+    <link rel="stylesheet" href="assets/css/font-icons.css" type='text/css'>
+    <link rel="stylesheet" href="assets/css/animations.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="sections/home/home.css"/>
+    <link rel="stylesheet" href="components/show/show.css"/>
+    <link rel="stylesheet" href="sections/contato/contato.css"/>
+    <link rel="stylesheet" href="sections/search/search.css"/>
+    <link rel="stylesheet" href="sections/sobre/sobre.css"/>
+    <link rel="stylesheet" href="sections/details/details.css"/>
+    <link rel="stylesheet" href="sections/como_usar_a_api/como_usar_a_api.css"/>
+    <link rel="stylesheet" href="sections/preview/preview.css"/>
+    <link rel="stylesheet" href="sections/conjuntos_dados/conjuntos_dados.css"/>
+    <link rel="stylesheet" href="sections/censo_2017/censo_2017.css"/>
+    <link rel="stylesheet" href="sections/indicador/indicador.css"/>
+    <link rel="stylesheet" href="sections/solicitacoes_conjuntos_de_dados/solicitacoes_conjuntos_de_dados.css"/>
+    <link rel="stylesheet" href="components/uigrid/ui-grid.min.css"/>
+    <link rel="stylesheet" href="assets/css/angular-material.min.css" />
+    <!-- endbuild -->
+
+    <link href="http://designers.hubspot.com/hs-fs/hub/327485/file-2054199286-css/font-awesome.css" rel="stylesheet">
+
+</head>
+<body data-ng-app="app">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=1636314513308384&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <a name="topo"></a>
+    <header class="bg-texture-red" id="site-header">
+        <div class="container">
+          <div class="row" style="padding-top: 10px;padding-bottom: 10px;">
+            <div class="col-md-9 col-xs-12">
+                <h2 style="color: #fff;font-weight: bold;text-align: left;margin-bottom: 0px;padding-top: 20px;">Portal de Dados Abertos <span style="font-size: 12px;background: #fff;color: #000;padding-left: 4px; padding-right: 4px;"> BETA </span></h2>
+                <h5 style="color: #fff;font-weight: normal;text-align: left;">Universidade Federal de Pernambuco</h5>
+            </div>
+            <div class="col-md-2 col-xs-6">
+              <div class="span6"> 
+                <h1 class="heading-search-social__logo">
+                <a class="logo custom-logo" href="#"> 
+                <img alt="UFPE" class="img-responsive" height="121" src="assets/images/company_logo_new.png"> </a> </h1> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar navbar-default navbar" id="menu">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-head" data-target=".navbar-collapse" >
+                <span class="sr-only">Home</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div id="navbar-head" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#/"><span>Home</span></a></li>
+                <li><a href="#/sobre"><span>Sobre</span></a></li>
+                <!--<li><a href="#sobre"><span>Categorias</span></a></li>-->
+                <li><a href="#/conjuntos_dados"><span>Conjuntos de Dados</span></a></li>
+                <li><a href="#/indicadores"><span>Indicadores</span></a></li>
+                <li><a href="#/contato"><span>Contato</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <section id="" data-ng-controller="BarController as bar">
+        <!--site-bar
+        <div class="container">
+            <h1>{{bar.data.title}}</h1>
+            <p>{{bar.data.description}}</p>
+        </div>-->
+        <div class="page-loader" data-ng-show="bar.data.loading"><div class="throbber"></div></div>
+    </section>
+    
+
+    <section id="main">
+                    <ng-view></ng-view>
+        
+    </section>
+    <footer id="footer" role="contentinfo" class="site-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <img src="assets/images/Marca_Alternativa_UFPE.png">
+                <br><br>
+                <p class="rua">Universidade Federal de Pernambuco
+                    <br>Av. Prof. Moraes Rego, 1235 - Cidade Universitária
+                    <br>CEP 50670-901 - Recife - PE
+                    <br><i class="fa fa-phone" aria-hidden="true"></i> <span>+55 (81) 2126.8000</span>
+                </p>
+              </div>
+            
+
+            </div> 
+
+          </div>
+          <br>
+          <p>Copyright &copy; 2018</p>
+    </footer>
+    <script type="text/javascript">
+    var apiUrl = function() {
+      return "";
+
+    };
+
+    //console.log(apiUrl());
+    var getCurrentUser = function(){
+      return window.sessionStorage.getItem("currentUser");
+    }
+    </script>
+
+    <!-- build:assets assets.min.js -->
+    <!-- ASSETS -->
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/angular-animate.min.js"></script>
+        <script src="assets/js/angular-cookies.min.js"></script>
+        <script src="assets/js/angular-route.min.js"></script>
+        <script src="assets/js/angular-touch.min.js"></script>
+        <script src="assets/js/highcharts.js"></script>
+        <script src="assets/js/moment.min.js"></script>
+        <script src="assets/js/angular-moment.min.js"></script>
+        <script src="assets/js/angular-truncate.js"></script>
+        <script src="assets/js/angular-preload-image.min.js"></script>
+        <script src="components/uigrid/ui-grid.min.js"></script>
+        <script src="components/uigrid/ui-grid.language.pt-br.js"></script>
+
+        <script src="assets/js/angular-aria.min.js"></script>
+        <script src="assets/js/angular-messages.min.js"></script>
+        <script src="assets/js/angular-material.min.js"></script>
+
+               
+
+    <!-- / -->
+    <!-- endbuild -->
+    <!-- build:js app.min.js -->
+    <!-- MODULES -->
+        <script src="app.routes.js"></script>
+        <script src="app.config.js"></script>
+        <script src="app.core.js"></script>
+        <script src="app.services.js"></script>
+        <script src="app.js"></script>
+    <!-- / -->
+    <!-- CONTROLLERS -->
+        <script src="sections/home/home.ctrl.js"></script>
+        <script src="sections/details/details.ctrl.js"></script>
+        <script src="sections/como_usar_a_api/como_usar_a_api.ctrl.js"></script>
+        <script src="sections/preview/preview.ctrl.js"></script>
+        <script src="sections/sobre/sobre.ctrl.js"></script>
+        <script src="sections/search/search.ctrl.js"></script>
+        <script src="sections/contato/contato.ctrl.js"></script>
+        <script src="components/bar/bar.ctrl.js"></script>
+        <script src="sections/conjuntos_dados/conjuntos_dados.ctrl.js"></script>
+        <script src="sections/censo_2017/censo_2017.ctrl.js"></script>
+        <script src="sections/indicador/indicador.ctrl.js"></script>
+        <script src="sections/solicitacoes_conjuntos_de_dados/solicitacoes_conjuntos_de_dados.ctrl.js"></script>
+    <!-- / -->
+    <!-- SERVICES -->
+        <script src="services/show.fct.js"></script>
+        <script src="services/dataset.fct.js"></script>
+        <script src="services/page.val.js"></script>
+    <!-- / -->
+    <!-- DIRECTIVES -->
+        <script src="components/show/show.drct.js"></script>
+        <script src="directives/ngEnter.drct.js"></script>
+      <!-- / -->
+      <!-- inject:js -->
+      <!-- endinject -->
+      <!-- endbuild -->
+      <script src="assets/js/ui-bootstrap-tpls.min.js"></script>
+</body>
+</html>

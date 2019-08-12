@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <h2 class="header-title"> Solicitações de Conjuntos de Dados - Acompanhamento </h2><hr>
+    </div>
+    <div class="col-md-12">  
+      <div class="row" st-safe-src="solicitacoes.rowCollection" st-table="rowCollectionData">
+        <div class="col-xs-12">
+            <button class="btn" id="btn-search" type="submit" value="Pesquisar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+            <input placeholder="Buscar solicitações" class="input-lg form-control search-input" ng-model="query"/>
+        </div> 
+      </div><br><br>
+      
+      <!--
+      <div class="col-xs-12 align-center">
+        <h4>Total de Solicitações: {{solicitacoes.rowCollection.length}}</h4>
+      </div>
+      -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="list-group" ng-repeat="row in solicitacoes.rowCollection | filter:query">
+              
+              <!-- Dados -->
+              <div class="col-md-12 align-left" style="border-bottom: 1px solid #ebebeb; padding-top: 10px">
+                <div class="col-md-10">
+                  <div class="row">
+                    <h5>
+                      <i class="glyphicon glyphicon glyphicon-th"></i> 
+                      {{row.description | uppercase }}
+                    </h5>
+                  </div>
+                  <div class="row">
+                    <h5>
+                      Status: <!-- Status -->
+                      <span ng-class="row.status == 'NOT_ACCEPTED' ? 'label label-danger' : (row.status == 'ACCEPTED' ? 'label label-success' : 'label label-default')">{{row.status}}</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      Author: <small class="text-muted">{{row.name | uppercase}}</small>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      Data da Solicitação: <small class="text-muted">{{row.solicitationDate}}</small>
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary btn-xs">
+                      <i class="glyphicon glyphicon-heart-empty"></i>
+                      0
+                    </button>
+                    <button class="btn btn-danger btn-xs">
+                      <i class="glyphicon glyphicon-thumbs-down"></i>
+                      0
+                    </button>
+                </div>
+              </div>
+
+
+            </a>
+            
+          </div>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+</div>

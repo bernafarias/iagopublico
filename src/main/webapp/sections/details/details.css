@@ -1,0 +1,221 @@
+.button-dropdown{
+	 border: 1px solid #ddd;
+    color: #333;
+    display: inline-block;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.table-dotted {
+  border: 1px dashed #cccccc;
+  border-collapse: collapse;
+}
+.table-dotted th {
+    text-align: center;
+}
+.button-back{
+	border: 1px solid #ddd;
+    color: #333;
+    display: inline-block;
+    padding: 15px 15px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-size: 14px;
+    text-decoration: none;
+}
+.button-back:hover{
+	cursor: pointer;
+	background-color:rgb(140, 14, 28);
+	color:#fff;
+	text-decoration: none;
+}
+
+.button-back:link{
+    text-decoration: none;
+}
+
+.button-back:visited{
+    text-decoration: none;
+    color: #333;
+}
+#color-dropdown{
+	color:#000;
+}
+
+#color-dropdown > span.caret{
+	color: #000;
+}
+
+#color-dropdown:hover{
+	cursor: pointer;
+	background-color:rgb(140, 14, 28);
+	color:#fff;
+}
+
+.nav .open>a#color-dropdown, .nav .open>a#color-dropdown:hover{
+	background-color: rgb(140, 14, 28) !important; 
+    border-color: rgb(140, 14, 28) !important;
+    color:#fff;
+}
+
+
+.title-dataset{
+	color: #3c3c3c;
+    text-transform: capitalize;
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+.align-right{
+	text-align: right;
+}
+
+.align-left{
+	text-align: left;
+}
+
+.span-title{
+	    color: #636363;
+    font-size: 13px;
+    background-color: #dedede;
+    padding: 3px;
+    font-weight: normal;
+}
+
+.padding-top-10{
+	padding-top: 10px;
+}
+
+.border-left{
+	    border-left: 1px solid #ebebeb;
+    float: right;
+    height: 100%;
+}
+
+.glyphicon { margin-right:5px;}
+.section-box h2 { margin-top:0px;}
+.section-box h2 a { font-size:15px; }
+.glyphicon-heart { color:#e74c3c;}
+.glyphicon-comment { color:#27ae60;}
+.separator { padding-right:5px;padding-left:5px; }
+.section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}
+
+.panel.panel-horizontal {
+    display:table;
+    width:100%;
+}
+.panel.panel-horizontal > .panel-heading, .panel.panel-horizontal > .panel-body, .panel.panel-horizontal > .panel-footer {
+    display:table-cell;
+}
+.panel.panel-horizontal > .panel-heading, .panel.panel-horizontal > .panel-footer {
+    width: 25%;
+    border:0;
+    vertical-align: middle;
+}
+.panel.panel-horizontal > .panel-heading {
+    border-right: 1px solid #ddd;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    
+}
+.panel.panel-horizontal > .panel-footer {
+    border-left: 1px solid #ddd;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 4px;
+}
+
+.email {
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.span-color{
+	color: #333;
+}
+
+.description-data{
+	padding: 8px !important;
+}
+
+.scrollbar {
+    overflow: auto; 
+    height: 500px
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    border: 1px solid #ddd;
+    padding: 2px 0;
+    background-color: #f9f9f9;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #ccc;
+}
+
+input{
+    border-radius: 0px;
+    border: 1px solid #EDEDED;
+    margin-bottom: 10px;
+} 
+.form-control2{
+    width: auto !important;
+}
+
+.myGrid {
+width: 500px;
+height: 250px;
+}
+
+.ui-grid-header-canvas {
+    background: #C00 !important;
+}
+
+.button-dropdown{
+     border: 1px solid #ddd;
+    color: #333;
+    display: inline-block;
+    -webkit-transition: .3s;
+    transition: .3s;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.readonly {
+    background: #f9f2f4;
+}
+
+.remove{
+    background: #C76868;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 21px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 9px;
+    vertical-align: top;
+    line-height: 100%;   
+}
+
+.add{
+    background: rgb(227, 250, 227);
+    border: 1px solid rgb(171, 239, 171);
+    color: rgb(9, 56, 9);
+    cursor: pointer;
+    
+}
+
+.add:hover{
+    opacity: 0.9;
+}

@@ -1,0 +1,75 @@
+<div class="home-frame">
+  <div class="container">
+    <div class="row" style="margin-top: 50px;">
+
+      <div class="col-md-6 col-xs-12">
+        <h1 class="title-dataset">{{vm.rowCollectionDetails.datasetTitle}} <span class="span-title">{{vm.rowCollectionDetails.category}}</span></h1>
+         
+       <br>
+      </div>
+      <div class="col-md-6 col-xs-12 align-right">
+        <div class="navbar">
+          <a class="button-back" href="javascript: history.back(-1)">
+            <i class="fa fa-undo"></i> Voltar
+          </a>
+        </div>
+        
+        <br>
+        <!-- -->
+      </div>
+    </div>
+    <hr style="margin: 0px;">
+    <div class="row">
+      <div class="col-md-8 padding-top-10">
+        <p class="align-left"><span style="font-size: 15px; color:#333;"><b>DESCRIÇÃO:</b> </span><br> {{vm.rowCollectionDetails.description}}</p>
+      </div>
+      <div class="col-md-4 padding-top-10 border-left">
+        <p class="align-left"><span style="font-size: 15px; color:#333;"><b>ÚLTIMA VERSÃO:</b> </span>
+            <span style="font-size: 15px; color:#333;" ng-repeat="opt in vm.lastVersion">
+                <font ng-show="$last == true">
+                  <u>{{opt.version}}</u>
+                  <br>
+                  <em>
+                    {{opt.description}}<br>
+                    {{opt.date}}
+                  </em>
+                </font>
+            </span>
+          </p>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+     <div class="col-md-12" ui-i18n="pt-br">
+        
+        <h3 class="align-left">
+          Pré-visualização
+        </h3>
+
+        
+        <div id="grid1" ui-grid="{ data: vm.previewData }" class="grid" ui-grid-resize-columns></div>
+
+         <!--
+        <div class="container" style="overflow: auto;" grid-data grid-options="gridOptions" grid-actions="gridActions">
+          <table width="100%" class="table">
+           <thead>
+            <tr>
+             <th sortable="{{header}}" class="sortable" ng-repeat="(header, value) in vm.previewData[0]">{{header}}</th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr grid-item ng-repeat="row in vm.previewData | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index">
+             <td ng-repeat="cell in row">{{cell}}</td>
+            </tr>
+           </tbody>
+          </table>
+        </div> 
+        -->    
+      </div>
+    </div>
+
+   </div>
+
+
+<br clear="all"><br><br><br><br><br>
+</div>

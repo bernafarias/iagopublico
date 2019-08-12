@@ -1,0 +1,567 @@
+<div class="home-frame">
+  <div class="container" id="sobre">
+    <div class="row" style="margin-top: 50px;">
+
+      <div class="col-md-6 col-xs-12">
+        <h1 class="title-dataset">{{vm.rowCollectionDetails.datasetRealName}} <span class="span-title">{{vm.rowCollectionDetails.category}}</span></h1>
+         
+       <br>
+      </div>
+      <div class="col-md-6 col-xs-12 align-right">
+        <div class="navbar">
+          <ul class="nav navbar-nav">
+            <!--<li class="active">
+              <a href ng-href="#/preview/{{vm.datasetURI}}" target="_self">
+                <i class="fa fa-table" aria-hidden="true"></i> 
+                Pré-visualizar</a>
+            </li>
+            -->
+          </ul>
+          <ul class="nav navbar-nav" >
+            <li class="dropdown button-dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" id="color-dropdown">
+                <i class="fa fa-download" aria-hidden="true"></i> 
+                Exportar <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" >
+                <li ng-repeat="opt in vm.download" ng-bind-html-unsafe="opt.text" >
+                  <a href ng-href="{{vm.linkUri}}{{ opt.Formato }}/download" target="_blank"><i class="ion-android-download"></i>{{ opt.Formato | uppercase }}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <!--
+          <ul class="nav navbar-nav" > 
+            <li class="dropdown button-dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" id="color-dropdown">API<span class="caret"></span></a>
+              <ul class="dropdown-menu" >
+                <li ng-repeat="opt in vm.download" ng-bind-html-unsafe="opt.text" >
+                  <a href ng-show="opt.Formato != 'csv'" ng-href="{{vm.linkUri}}{{ opt.Formato }}" target="_blank" ><i class="ion-arrow-swap"></i>{{ opt.Formato | uppercase }}</a>
+                </li>
+              </ul>
+            </li>  
+          </ul>
+          -->
+           <ul class="nav navbar-nav" >
+            <li class="dropdown button-dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" id="color-dropdown">
+                <i class="fa fa-cogs" aria-hidden="true"></i> 
+                API <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" >
+                <!--
+                <li ng-bind-html-unsafe="opt.text" >
+                  <a href ng-href="{{vm.linkUriApi}}" target="_blank"><i class="ion-android-download"></i>Dados</a>
+                </li>
+                -->
+                <li  ng-bind-html-unsafe="opt.text" >
+                  <a href ng-href="#/details/{{vm.datasetURI}}/como_usar_a_api"><i class="ion-android-download"></i>Como usar a API</a>
+                </li>
+                <li ng-bind-html-unsafe="opt.text" >
+                  <a href ng-href="{{vm.linkUriApiDocumentacao}}" target="_self"><i class="ion-android-download"></i>Documentação</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          
+          <a class="button-back" href="javascript: history.back(-1)">
+            <i class="fa fa-undo"></i> Voltar
+          </a>
+        </div>
+        
+        <br>
+        <!-- -->
+      </div>
+    </div>
+    <hr style="margin: 0px;">
+    <div class="row">
+      <div class="col-md-8 padding-top-10">
+        <p class="align-left"><span style="font-size: 15px; color:#333;"><b>DESCRIÇÃO:</b> </span><br> {{vm.rowCollectionDetails.description}}</p>
+      </div>
+      <div class="col-md-4 padding-top-10 border-left">
+        <p class="align-left"><span style="font-size: 15px; color:#333;"><b>ÚLTIMA VERSÃO:</b> </span>
+            <span style="font-size: 15px; color:#333;" ng-repeat="opt in vm.lastVersion">
+                <font ng-show="$last == true">
+                  <u>{{opt.version}}</u>
+                  <br>
+                  <em>
+                    {{opt.description}}<br>
+                    {{opt.date}}
+                  </em>
+                </font>
+            </span>
+          </p>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+     <div class="col-md-12">
+        <h3 class="align-left">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> 
+          Sobre o Conjunto de Dados 
+          <a href ng-href="{{vm.linkMetadadosApi}}" target="_blank" class="pull-right"> <small> (acessar metadados via API)</small></a>
+        </h3>
+        <div class="panel panel-default panel-horizontal">
+            <div class="panel-heading text-center">
+                <span class="span-color">PRÓXIMA ATUALIZAÇÃO</span>
+                <span><h3>{{vm.proxAtualizacao}}</h3></span>
+                <hr />
+                <span class="span-color">DOWNLOADS</span>
+                <span><h3>{{vm.rowCollectionDetails.views}}</h3></span>
+                <hr />
+                <div style="padding-top: 10px;">Criador: {{vm.rowCollectionDetails.creator}}</div>
+                <span class="span-color">Contato: {{vm.rowCollectionDetails.contactPoint}}</span><br>
+                <span class="span-color">Linguagem: {{vm.rowCollectionDetails.language}}<span>
+            </div>
+            <div class="panel-body">
+              <div class="col-xs-12 col-md-12 section-box">
+                <table st-table="vm.rowCollectionDetails" class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td class="description-data">
+                        Data de Publicação:
+                      </td>
+                      <td class="description-data">
+                        {{vm.rowCollectionDetails.creationDate}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Licença</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.license}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Palavras-chave/Tags</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.keywords}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">URI</td>
+                      <td class="description-data">{{vm.linkUriAtual}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Produtor</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.publisher}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Cobertura Temporal</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.period}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Cobertura Espacial</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.spacialCoverage}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Formatos de Data e Hora</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.datetimeFormats}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Preservação</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.preservation}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Frequência de atualização</td>
+                      <td class="description-data" style="text-transform: capitalize !important">{{vm.frequency}}</td>
+                    </tr>
+                    <tr>
+                      <td class="description-data">Versão Atual</td>
+                      <td class="description-data">{{vm.rowCollectionDetails.lastVersion}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>                            
+        </div>     
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col-md-12" id="oqueexistenesteconjuntodedados">
+        <h3 class="align-left">
+          <i class="fa fa-align-center" aria-hidden="true"></i>
+          O que existe neste conjunto de dados?
+        </h3>
+        <div class="panel panel-default panel-horizontal">
+          <div class="panel-heading text-center">
+            <div class="col-md-1 text-left">
+              Campos<br>
+              <h3>{{vm.fieldsCount}}</h3>
+            </div>
+            <div class="col-md-2 text-left">
+              Total de Registros<br>
+              <h3>{{vm.rowCollectionDetails.rowsNumber}}</h3>
+            </div>
+            <div class="col-md-1 text-left">
+              Páginas<br>
+              <h3>{{vm.rowCollectionDetails.pagesNumber}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col-md-12" id="distribuicoes">
+        <h3 class="align-left">
+          Distribuições do Conjunto de Dados
+          <ul class="nav navbar-nav pull-right" >
+            <li class="dropdown button-dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" id="color-dropdown">
+                <i class="fa fa-download" aria-hidden="true"></i> 
+                Exportar <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" >
+                <li ng-repeat="opt in vm.download" ng-bind-html-unsafe="opt.text" >
+                  <a href ng-href="{{vm.linkUri}}{{ opt.Formato }}/download" target="_blank"><i class="ion-android-download"></i>{{ opt.Formato | uppercase }}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </h3>
+      </div>
+      <div class="col-md-12" align="left">
+        <div ng-repeat="opt in vm.download" ng-bind-html-unsafe="opt.text">
+          <h4>Distribuição {{ opt.Formato | uppercase }}</h4>
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td class="description-data">Descrição</td>
+                <td class="description-data">Distribuição em {{opt.Formato | uppercase}} do Conjunto de Dados {{vm.rowCollectionDetails.datasetRealName}}</td>
+              </tr>
+              <tr>
+                <td class="description-data">Media type</td>
+                <td class="description-data">application/{{ opt.Formato }}</td>
+              </tr>
+              <tr>
+                <td class="description-data">Download URL</td>
+                <td class="description-data">{{vm.linkUri}}{{ opt.Formato }}/download</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12" id="metadadosestruturais">
+        <h3 class="align-left">
+          Metadados estruturais
+        </h3>
+      </div>
+      <div class="container panel-horizontal table-dotted scrollbar">
+        <legend style="font-size: 12px; border: 0" class="align-left"><u>Campo(*)</u>: corresponde a propriedade dentro do conjunto de dados.</legend>
+        <table width="100%" class="table">
+          <tbody>
+            <tr style="background-color: #f9f9f9;">
+              <th>Propriedade</th>
+              <th>Campo (*)</th>
+              <th>Descrição</th>
+              <th>Tipo de Dados</th>
+            </tr>
+            <tr ng-repeat="sm in vm.rowCollectionDetails.fieldDescriptions">
+              <td>{{sm.title}}</td>
+              <td>{{sm.fieldName}}</td>
+              <td>{{sm.description}}</td>
+              <td>{{sm.dataType}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br clear="all">
+
+    <div class="row">
+      <div class="col-md-12" id="previsualizacaodosdados">
+        <h3 class="align-left">
+          Pré-visualização dos dados
+          <a href ng-href="{{vm.linkUriApi}}" target="_blank" class="pull-right"> <small> (acessar dados via API)</small></a>
+
+        </h3>
+      </div>
+      <div class="container panel-horizontal table-dotted" style="overflow: auto">
+        <table width="100%" class="table" style="font-size: 12px">
+         <thead>
+          <tr>
+           <th style="background-color: #f9f9f9;" ng-repeat="(header, value) in vm.previewData[0]"><strong>{{header}}</strong></th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr ng-repeat="row in vm.previewData | filter:searchText">
+           <td ng-repeat="cell in row">{{cell}}</td>
+          </tr>
+         </tbody>
+        </table>
+      </div>
+    </div>
+    <br clear="all">
+
+    <!-- Inicio Custom API -->
+    <div class="row">
+      <div class="col-md-12" id="gerarsubconjuntos">
+        <h3 class="align-left">
+          Gerar Subconjuntos via API:
+        </h3>
+      </div>
+      <div class="container panel-horizontal table-dotted" style="overflow: auto">
+        <br clear="all">
+        <div class="col-md-7">
+          <div class="col-md-12 align-left">
+            <div class="col-md-4">      
+              Conjunto de dados
+            </div>
+            <div class="col-md-8">
+              <input type="text" ng-model="subconjunto.datasetName" class="input-sm col-md-12 readonly" ng-readonly="true">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-4 align-left">      
+              Versão
+            </div>
+            <div class="col-md-8">
+              <input type="text" ng-model="subconjunto.version" class="input-sm col-md-12">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-4 align-left">      
+              Limite de Registros
+            </div>
+            <div class="col-md-8">
+              <input type="number" class="input-sm col-xs-6" ng-model="subconjunto.limit" min="1" max="10000" step="100">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-4 align-left">      
+              Página
+            </div>
+            <div class="col-md-8">
+              <input type="number" step="1" ng-model="subconjunto.page" class="input-sm col-xs-6">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-4 align-left">
+              Filtros
+            </div>
+            <div class="col-md-8">
+              <div class="field-group">
+                <fieldset  data-ng-repeat="choice in choices">
+                  
+                  <md-autocomplete
+                    ng-disabled = "vm.isDisabled"
+                    md-no-cache = "false"
+                    md-selected-item = "choice.selectedItem"
+                    md-search-text-change = "vm.searchTextChange(choice.parameter)"
+                    md-search-text = "choice.parameter"
+                    md-selected-item-change = "vm.selectedItemChange(item)"
+                    md-items = "item in vm.querySearch(choice.parameter)"
+                    md-item-text = "item.display"
+                    md-min-length = "0"
+                    placeholder = "Parâmetro"
+                    ng-required="true"
+                    ng-focus="verificaParametros()" 
+                    ng-blur="verificaParametros()"
+                    style="width: 45% !important; float: left; margin-right: 2px; text-align: left !important; font-size: 12px !important;">
+                    
+                    <md-item-template>
+                       <span md-highlight-text = "choice.parameter"
+                          md-highlight-flags = "^i">{{item.display}}</span>
+                    </md-item-template>
+                    
+                    <md-not-found>
+                       ERRO! Nenhum registro encontrado.
+                    </md-not-found>
+                  </md-autocomplete>
+                  <input type="text" ng-model="choice.value" class="input-sm form-control2 col-xs-3" ng-focus="verificaParametros()" ng-blur="verificaParametros()" required="true" placeholder="Valor" style="width: 45% !important; float: left">
+                  <button class="remove add" ng-show="$last" style="height: 30px" ng-click="addNewChoice()">+</button>
+
+                  <!--
+                    <input type="text" ng-model="choice.parameter" class="input-sm form-control2 col-xs-3" placeholder="Parâmetro"  required="true" ng-focus="verificaParametros()" ng-blur="verificaParametros()" style="width: 45% !important; float: left; margin-right: 2px">
+                    
+                    <input type="text" ng-model="choice.value" class="input-sm form-control2 col-xs-3" ng-focus="verificaParametros()" ng-blur="verificaParametros()" required="true" placeholder="Valor" style="width: 45% !important; float: left">
+
+                    <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+                  -->
+               </fieldset>
+              </div>
+              <div ng-show="vm.suggestionText" style="border: 1px dashed #ccc; padding: 4px; font-size: 11px">
+                {{vm.suggestionText}}
+              </div>
+              <br/>
+
+            </div>
+          </div>
+          <br clear="all">
+          <div class="col-md-12 align-left">
+            <button class="add" style="margin-left: 10px; margin-bottom: 20px; background: blue; color: white; height: 30px" ng-click="submitFormSubconjunto(subconjunto);">Gerar subconjunto!</button>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <code> POST </code>&nbsp;&nbsp;<code> http://150.161.0.22:3000/iago/open/execute_query</code>  
+          <code style="background: none">
+            <pre class="align-left">
+                {
+                  "datasetName" : "{{subconjunto.datasetName || vm.rowCollectionDetails.identifierUri}}",
+                  "version" : "{{subconjunto.version}}",
+                  "parameters" : {{subconjunto.parameters}},
+                  "limit" : "{{subconjunto.limit}}",
+                  "page" : "{{subconjunto.page}}"
+                }
+              
+            </pre>
+          </code>
+        </div>
+
+        <br clear="all">
+
+        <div class="row">
+          <div class="col-md-12 align-left" id="retornoConsulta">
+            <code> Resultado JSON </code>
+            <code style="background: none">
+              <pre class="align-left">
+                {{retornoConsulta | json}}
+              </pre>
+            </code>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br clear="all">
+    <!-- Fim Custom API -->
+
+
+
+    <div class="row">
+     <div class="col-md-12" id="historicodeversoes">
+        <h3 class="align-left">
+          Histórico de Versões
+          <a href ng-href="{{vm.linkVersoes}}" target="_blank" class="pull-right"> <small> (acessar versões via API)</small></a>
+        </h3>
+      </div>
+      <div>
+        <table st-safe-src="vm.rowCollection" st-table="rowCollectionData" class="table table-striped">
+          <thead>
+            <tr class="sortable">
+              <th class="table-id" st-sort="id" st-sort-default="reverse">#Id_Versão</th>
+              <th st-sort="description">Descrição</th>
+              <th st-sort="uri">URI</th>
+              <th st-sort="date">Data/Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="row in vm.rowCollection">
+            <td  align="left" class="table-id">{{row.version}}</td>
+            <td  align="left">{{row.description}} 
+              <a href="{{vm.linkVersaoEspecifica}}/{{row.version}}/format/json" title="Clique para os dados desta versão em JSON"><span class="badge badge-info"><small>JSON</small></span></a>
+              <a href="{{vm.linkVersaoEspecifica}}/{{row.version}}/format/xml" title="Clique para os dados desta versão em XML"><span class="badge badge-warning"><small>XML</small></span></a>
+              <a href="{{vm.linkVersaoEspecifica}}/{{row.version}}/format/csv/download" title="Clique para os dados desta versão em CSV"><span class="badge badge-success"><small>CSV</small></span></a>
+            </td>
+            <td align="left">{{vm.linkVersaoEspecifica}}/{{row.version}}</td>
+            <td align="left">{{row.date}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="row">
+     <div class="col-md-12" id="compartilhar">
+        <h3 class="align-left">
+          Compartilhar
+        </h3>
+      </div>
+      <div class="align-left">
+        
+        <a href="https://plus.google.com/share?url={{vm.linkUriAtual | encodeURIComponent}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+" class="padding-left-20" style="margin-top: -8px;" /></a>
+
+		<a href="https://www.facebook.com/sharer/sharer.php?u={{vm.linkUriAtual | encodeURIComponent}}&amp;src=sdkpreparse" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAk1BMVEU7WZj///9DYJxAXptJZZ83VZb3+PspTJGYpccxUZNIYp2/yd3d4uxjeavY3ek9XJtQbKUmSY/r7vXK0uOgrsyqttGLm7/S2ed6jbceRI0yUpfb4Od0h7BmfKxbdKjz9fe5w9KElrXH0Nl9kLSvutO6xNlfeaauuszO1t2Oobvo6/Nacqhxhq5lfahwhrWJmsCZqcDpXmosAAAEu0lEQVR4nO3dW3+aMBjH8aAEiKeheMSprYfOanV7/69u2Nb1Yg4eiYE82f93sd2ske8nQEShE95n819vse9K8el1foWJ9z+D9VuaSuFOMg1PT6sv4eFVOuV7L5XP86tw/j2te3OMlJ72H0JXgRfi/CIMXl0FZsTNKhOupXOH4FfpUyZ8c3cKs3PqMhBzl4FChGvxy21h+ixODh+FWfJF+HVvg+F80ah7EwzXhJB9EPIPQv5ByD8I+Qch/yDkH4T8g5B/EFqQvFbuxy0WShX2+2GYfvqUUmmY1b+U/a2IZEuFMoPI+Dwe7ZJJr/NerzeZJEl7tx0No5/TczduiTT7R4VD2SiU/ZnsDpOBl1sQDA6TXauQaJ9QqfhnEuTrvopV0XiWCaVqTHdkXjaRzIRSHscJncdOKFUcTe7yebz2UiWm9MOP4xyG/rbg5Mlc2O/27p5ATkI5m5bxeWyOQzmLSgKZzKFMh+V8XOZQimHJGWQzh9Gq9BSyEMpNiVXiTwyEstvRADKYQ9loawA5CMNIB8hAqOLSp9GPrBfOtPZRBnMYdvWA9s9hePf1ILM5DM+6U2i7UN33kcWt7Baqhc67GQ5zGI40lwrbhbLV0wVaLgyn2jup5cehGukDrZ5D2dJdDC/ZLFQLncsmFsLxHZf2weBw+X7t73yLhXJL5vXaw80ibjW//V3x69QmpF/6TqKlCEOl5K2KX6g2oTrSTjSr0TFUOo/11CeknWgGY1F4pOVXn5C03geR9sOR9QnHlDelO6H93Fl9ZxrKJ/mdheYuKuoUUt6ztR/wAG996yFhOVyNQ/3XqUsom7ti4WGpv5PaLew1H/B8a23CFkGYPGAKaxQS3rTtHnAYWi0MRs4Lh84LIwgpQWgqCCGkB6GpIISQHoSmghBCehCaCkII6UFoKgiZCNW/C78VfyIcRLOcEd6rWdjo5rQovi8xGB3zRsjG6NYrVMtOXoR7TQa5A2S1CbuxSaH2Lc6FJTPXhVvnhVHfdeHZ+eOwS1guWAuDuN67vswLD03CZrAWJpTNYC3c1fyuzbxw6Lxw7Lxw6rowWFBuKOIsPBxdF05814VtyoLPWrglbQZn4ZB05yJn4dh1YUBaDjkLB7Tb3BkLe0vX99KEcv3LWrhruC6kLYechbTlkLEwIF0dchYOaMshY+Hh7LpwQlsOGQsT0tUhZ2Gb+FCUSeHx5hP01wjfkB5yfrwTETfD6Pf4N56f//McvU+6UyFvBBuEN5+g//wN64TH8YOonzOCFcKcHLnbJCcIIaQHoakghJAehKaCEEJ6EJoKQgjpQWgqCCGkB6GpIISQHoSmghBCehCaCkII6UFoKgghpAehqSCEkB6EpoIQQnoQmgpCCOlBaCoIIaQHoakghJAehKaCEEJ6EJoKQgjpQWgqCCGkB6GpIISQ3v8g9B8wyv1VJ2yJlwf8v8n3V5lQLsVrqj9MiReuSphuxN5tYbgW3qmO3bQqoYxXwntyWZj+8IS32tSwn1YkTN9WmdCbn6onViNMl3vvIvT21RMrEabLtfch9OYbVfHBWIFQpt/33lXorZ6W/bRKpGmhVP34x8evExPX8fbPL36jsppx2wuKimTZ4f2X53XwCfsNE8N+WABDbt8AAAAASUVORK5CYII=" alt="Compartilhar no Facebook" class="padding-left-20" style="margin-top: -8px;"  width="45" height="35"/></a>
+		
+
+<!--         <div class="fb-share-button padding-left-20 padding-top-5" data-href="{{vm.linkUriAtual}}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{vm.linkUriAtual | encodeURIComponent}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div> -->
+
+      </div>
+    </div>
+
+   </div>
+
+<!-- Menu de acesso rápido -->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <div class="row" style="width: 80%; margin: 0 auto">
+      <ul class="nav nav-pills" style="font-size: 11px; padding: 5px !important;"> 
+        <li class="">
+          <a ng-click="scrollTo('sobre')" style="cursor:pointer">Sobre</a>
+        </li>
+        <!--
+        <li>
+          <a ng-click="scrollTo('oqueexistenesteconjuntodedados')" style="cursor:pointer">O que existe neste conjunto de dados</a>
+        </li>
+      -->
+        <li>
+          <a ng-click="scrollTo('distribuicoes')" style="cursor:pointer">Distribuições</a>
+        </li> 
+        <li>
+          <a ng-click="scrollTo('metadadosestruturais')" style="cursor:pointer">Metadados estruturais</a>
+        </li> 
+        <li>
+          <a ng-click="scrollTo('previsualizacaodosdados')" style="cursor:pointer">Pré-visualização dos dados</a>
+        </li> 
+        <li>
+          <a ng-click="scrollTo('gerarsubconjuntos')" style="cursor:pointer">Gerar Subconjuntos</a>
+        </li>
+        <li>
+          <a ng-click="scrollTo('historicodeversoes')" style="cursor:pointer">Histórico de Versões</a>
+        </li> 
+        <li>
+          <a ng-click="scrollTo('compartilhar')" style="cursor:pointer">Compartilhar</a>
+        </li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- -->
+
+
+<br clear="all"><br><br><br><br><br>
+</div>
+
+
+
+ <!--
+        <div ba-panel ba-panel-title="Versões <a href ng-href='{{vm.linkVersoes}}' target='_blank' class='right btn btn-default btn-with-icon btn-xs'><i class='ion-arrow-swap'></i> Versões em JSON</a>" ba-panel-class="with-scroll">
+          <div class="horizontal-scroll">
+            <table st-safe-src="vm.rowCollection" st-table="rowCollectionData" class="table table-striped">
+              <thead>
+              <tr class="sortable">
+                <th class="table-id" st-sort="id" st-sort-default="reverse">#Id_Versão</th>
+                <th st-sort="description">Descrição</th>
+                <th st-sort="date">Data/Hora</th>
+              </tr>
+              <tr>
+                  <th><input st-search="version" placeholder="Filtrar por Id" class="input-sm form-control search-input"
+                             type="search"/></th>
+                  <th><input st-search="description" placeholder="Filtrar por descrição" class="input-sm form-control search-input"
+                             type="search"/></th>
+                  <th><input st-search="date" placeholder="Filtrar por data/hora" class="input-sm form-control search-input" type="search"/></th>
+                </tr>  
+              </thead>
+              <tbody>
+              <tr ng-repeat="row in vm.rowCollectionData">
+                <td class="table-id">{{row.version}}</td>
+                <td><a href="#/dataset/details/{{vm.datasetURI}}/{{row.version}}" title="Clique para acessar os dados e metadados desta versão">{{row.description}}</a></td>
+                <td>{{row.date}}</td>
+              </tr>
+              <tr ng-if="vm.rowCollectionData.description">
+                <td colspan="3">
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        
+        <div ba-panel ba-panel-title="Atualização" ba-panel-class="with-scroll">
+          <div class="col-md-12">
+            Próxima Atualização: {{vm.proxAtualizacao}} 
+          </div>
+        </div>
+      -->
